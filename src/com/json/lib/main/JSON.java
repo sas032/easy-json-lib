@@ -55,13 +55,35 @@ public class JSON {
 					(END);
 			returnJsonFinalString = returnJsonString.toString();
 		}
-		
+		getString("testkey",returnJsonFinalString);
+		System.out.println(returnJsonFinalString);
 		return returnJsonFinalString;
 	}
 	
+	public String value(JSON json) {
+		String jsonString = "";
+		jsonString = stringValueToConvert;
+		return jsonString;
+	}
+	
 	//Find a key to value pair for String
-	public String getString(String key) {
+	public String getString(String key, String json) {
 		String valueOfKey = "";
+		final String keyStart = "{\"";
+		final String keyEnd = "\":";
+		String valueStart = "\":\"";
+		final String valueEnd = "\"}";
+		String foundKey = json.substring(json.indexOf(keyStart)+keyStart.length());
+		foundKey = foundKey.substring(0,json.indexOf(keyEnd));
+		foundKey = foundKey.replace(keyEnd, "");
+		if(foundKey.equals(key)) {
+			valueStart = key + valueStart;
+			int indexOfValueStart = json.indexOf(valueStart);
+			int indexOfValueEnd = json.indexOf(valueEnd);
+			valueOfKey = json.substring(indexOfValueStart,indexOfValueEnd);
+			valueOfKey = valueOfKey.replace(valueStart, "");
+			
+		}
 		
 		return valueOfKey;
 	}
