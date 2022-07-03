@@ -27,6 +27,11 @@ public class Test {
 		jsonTwo.updateOrInsert("a", "value for a");
 		jsonTwo.updateOrInsert("d", "new");
 		System.out.println(jsonTwo);
+		
+		JSONTwo jsonFour = jsonTwo.copy();
+		jsonTwo.add("Big Obj",jsonFour);
+		
+		jsonTwo.pretty();
 	}
 }
 
