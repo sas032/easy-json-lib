@@ -55,7 +55,9 @@ public class JSON {
 					(END);
 			returnJsonFinalString = returnJsonString.toString();
 		}
-		getString("testkey",returnJsonFinalString);
+		// getString("testkey",returnJsonFinalString);
+		// 
+		stringValueToConvert = returnJsonFinalString;
 		System.out.println(returnJsonFinalString);
 		return returnJsonFinalString;
 	}
@@ -67,7 +69,7 @@ public class JSON {
 	}
 	
 	//Find a key to value pair for String
-	public String getString(String key, String json) {
+	public static String getString(String key, String json) {
 		String valueOfKey = "";
 		final String keyStart = "{\"";
 		final String keyEnd = "\":";
@@ -84,7 +86,7 @@ public class JSON {
 			valueOfKey = valueOfKey.replace(valueStart, "");
 			
 		}
-		
+		System.out.println("value of Key: "+valueOfKey);
 		return valueOfKey;
 	}
 	
