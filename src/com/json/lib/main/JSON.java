@@ -9,6 +9,11 @@ public class JSON {
 	String stringValueToConvert = "";
 	int intValueToConvert = 0;
 	
+	@Override
+    public String toString() {
+        return this.stringValueToConvert;
+    }
+	
 	//Constructor
 	JSON() {
 		
@@ -58,7 +63,6 @@ public class JSON {
 		// getString("testkey",returnJsonFinalString);
 		// 
 		stringValueToConvert = returnJsonFinalString;
-		System.out.println(returnJsonFinalString);
 		return returnJsonFinalString;
 	}
 	
@@ -86,7 +90,7 @@ public class JSON {
 			valueOfKey = valueOfKey.replace(valueStart, "");
 			
 		}
-		System.out.println("value of Key: "+valueOfKey);
+		
 		return valueOfKey;
 	}
 	
